@@ -7,9 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6630795F2028865300A43814 /* URLResponse+Checking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6630795E2028865300A43814 /* URLResponse+Checking.swift */; };
+		66307965202888F100A43814 /* SpeedTestHost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66307962202888F100A43814 /* SpeedTestHost.swift */; };
+		66307966202888F100A43814 /* SpeedTestService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66307963202888F100A43814 /* SpeedTestService.swift */; };
+		6630796D20288BCA00A43814 /* URL+ping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6630796C20288BCA00A43814 /* URL+ping.swift */; };
+		6630797120289F2200A43814 /* URLPingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6630797020289F2200A43814 /* URLPingTests.swift */; };
+		663079732028A43000A43814 /* SpeedTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 663079722028A43000A43814 /* SpeedTest.swift */; };
+		663079752028A6AB00A43814 /* SpeedTestServiceAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 663079742028A6AB00A43814 /* SpeedTestServiceAPI.swift */; };
+		663079782028A6F500A43814 /* DefaultHostPingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 663079772028A6F500A43814 /* DefaultHostPingService.swift */; };
+		6630797A2028E82A00A43814 /* SpeedTestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 663079792028E82A00A43814 /* SpeedTestTests.swift */; };
 		66DA7F0920285F3300A01BA1 /* SpeedTestLib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66DA7EFF20285F3300A01BA1 /* SpeedTestLib.framework */; };
 		66DA7F0E20285F3300A01BA1 /* SpeedTestLibTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66DA7F0D20285F3300A01BA1 /* SpeedTestLibTests.swift */; };
 		66DA7F1020285F3300A01BA1 /* SpeedTestLib.h in Headers */ = {isa = PBXBuildFile; fileRef = 66DA7F0220285F3300A01BA1 /* SpeedTestLib.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		66DA7F1D20286C7D00A01BA1 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66DA7F1C20286C7D00A01BA1 /* Result.swift */; };
+		66DA7F2320286E9B00A01BA1 /* SpeedTestServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66DA7F2220286E9B00A01BA1 /* SpeedTestServiceTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -23,12 +34,23 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6630795E2028865300A43814 /* URLResponse+Checking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLResponse+Checking.swift"; sourceTree = "<group>"; };
+		66307962202888F100A43814 /* SpeedTestHost.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpeedTestHost.swift; sourceTree = "<group>"; };
+		66307963202888F100A43814 /* SpeedTestService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpeedTestService.swift; sourceTree = "<group>"; };
+		6630796C20288BCA00A43814 /* URL+ping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+ping.swift"; sourceTree = "<group>"; };
+		6630797020289F2200A43814 /* URLPingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLPingTests.swift; sourceTree = "<group>"; };
+		663079722028A43000A43814 /* SpeedTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeedTest.swift; sourceTree = "<group>"; };
+		663079742028A6AB00A43814 /* SpeedTestServiceAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpeedTestServiceAPI.swift; sourceTree = "<group>"; };
+		663079772028A6F500A43814 /* DefaultHostPingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultHostPingService.swift; sourceTree = "<group>"; };
+		663079792028E82A00A43814 /* SpeedTestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeedTestTests.swift; sourceTree = "<group>"; };
 		66DA7EFF20285F3300A01BA1 /* SpeedTestLib.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SpeedTestLib.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		66DA7F0220285F3300A01BA1 /* SpeedTestLib.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SpeedTestLib.h; sourceTree = "<group>"; };
 		66DA7F0320285F3300A01BA1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		66DA7F0820285F3300A01BA1 /* SpeedTestLibTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SpeedTestLibTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		66DA7F0D20285F3300A01BA1 /* SpeedTestLibTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeedTestLibTests.swift; sourceTree = "<group>"; };
 		66DA7F0F20285F3300A01BA1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		66DA7F1C20286C7D00A01BA1 /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
+		66DA7F2220286E9B00A01BA1 /* SpeedTestServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeedTestServiceTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,6 +72,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6630795D2028863900A43814 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				6630795E2028865300A43814 /* URLResponse+Checking.swift */,
+				6630796C20288BCA00A43814 /* URL+ping.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		66307960202888DF00A43814 /* SpeedTestHostingService */ = {
+			isa = PBXGroup;
+			children = (
+				66307962202888F100A43814 /* SpeedTestHost.swift */,
+				66307963202888F100A43814 /* SpeedTestService.swift */,
+			);
+			path = SpeedTestHostingService;
+			sourceTree = "<group>";
+		};
+		663079762028A6E900A43814 /* HostPingService */ = {
+			isa = PBXGroup;
+			children = (
+				663079772028A6F500A43814 /* DefaultHostPingService.swift */,
+			);
+			path = HostPingService;
+			sourceTree = "<group>";
+		};
 		66DA7EF520285F3300A01BA1 = {
 			isa = PBXGroup;
 			children = (
@@ -71,8 +119,12 @@
 		66DA7F0120285F3300A01BA1 /* SpeedTestLib */ = {
 			isa = PBXGroup;
 			children = (
+				6630795D2028863900A43814 /* Extensions */,
+				66DA7F1B20286C6C00A01BA1 /* Helpers */,
+				66DA7F1E20286E4400A01BA1 /* Network */,
 				66DA7F0220285F3300A01BA1 /* SpeedTestLib.h */,
 				66DA7F0320285F3300A01BA1 /* Info.plist */,
+				663079722028A43000A43814 /* SpeedTest.swift */,
 			);
 			path = SpeedTestLib;
 			sourceTree = "<group>";
@@ -80,10 +132,39 @@
 		66DA7F0C20285F3300A01BA1 /* SpeedTestLibTests */ = {
 			isa = PBXGroup;
 			children = (
+				66DA7F2120286E7C00A01BA1 /* Network */,
 				66DA7F0D20285F3300A01BA1 /* SpeedTestLibTests.swift */,
 				66DA7F0F20285F3300A01BA1 /* Info.plist */,
+				663079792028E82A00A43814 /* SpeedTestTests.swift */,
 			);
 			path = SpeedTestLibTests;
+			sourceTree = "<group>";
+		};
+		66DA7F1B20286C6C00A01BA1 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				66DA7F1C20286C7D00A01BA1 /* Result.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		66DA7F1E20286E4400A01BA1 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				663079742028A6AB00A43814 /* SpeedTestServiceAPI.swift */,
+				663079762028A6E900A43814 /* HostPingService */,
+				66307960202888DF00A43814 /* SpeedTestHostingService */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		66DA7F2120286E7C00A01BA1 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				66DA7F2220286E9B00A01BA1 /* SpeedTestServiceTests.swift */,
+				6630797020289F2200A43814 /* URLPingTests.swift */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -148,6 +229,7 @@
 				TargetAttributes = {
 					66DA7EFE20285F3300A01BA1 = {
 						CreatedOnToolsVersion = 9.2;
+						LastSwiftMigration = 0920;
 						ProvisioningStyle = Automatic;
 					};
 					66DA7F0720285F3300A01BA1 = {
@@ -196,6 +278,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				66307966202888F100A43814 /* SpeedTestService.swift in Sources */,
+				663079782028A6F500A43814 /* DefaultHostPingService.swift in Sources */,
+				663079752028A6AB00A43814 /* SpeedTestServiceAPI.swift in Sources */,
+				66DA7F1D20286C7D00A01BA1 /* Result.swift in Sources */,
+				66307965202888F100A43814 /* SpeedTestHost.swift in Sources */,
+				6630796D20288BCA00A43814 /* URL+ping.swift in Sources */,
+				6630795F2028865300A43814 /* URLResponse+Checking.swift in Sources */,
+				663079732028A43000A43814 /* SpeedTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -203,7 +293,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6630797120289F2200A43814 /* URLPingTests.swift in Sources */,
 				66DA7F0E20285F3300A01BA1 /* SpeedTestLibTests.swift in Sources */,
+				66DA7F2320286E9B00A01BA1 /* SpeedTestServiceTests.swift in Sources */,
+				6630797A2028E82A00A43814 /* SpeedTestTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -334,6 +427,7 @@
 		66DA7F1420285F3300A01BA1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -348,6 +442,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = exadel.SpeedTestLib;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -356,6 +451,7 @@
 		66DA7F1520285F3300A01BA1 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -378,6 +474,7 @@
 		66DA7F1720285F3300A01BA1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5J45YM6Q2J;
 				INFOPLIST_FILE = SpeedTestLibTests/Info.plist;
@@ -392,6 +489,7 @@
 		66DA7F1820285F3300A01BA1 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5J45YM6Q2J;
 				INFOPLIST_FILE = SpeedTestLibTests/Info.plist;
