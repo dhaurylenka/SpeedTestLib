@@ -8,20 +8,16 @@
 
 import Foundation
 
-class CustomHostDownloadService: NSObject {
+class CustomHostDownloadService: NSObject, SpeedService {
     private var responseDate: Date?
     private var latestDate: Date?
     private var current: ((Speed, Speed) -> ())!
     private var final: ((Speed) -> ())!
     
-    func download(_ url: URL, current: @escaping (Speed, Speed) -> (), final: @escaping (Speed) -> ()) {
+    func test(_ url: URL, current: @escaping (Speed, Speed) -> (), final: @escaping (Speed) -> ()) {
         self.current = current
         self.final = final
         URLSession(configuration: .default, delegate: self, delegateQueue: OperationQueue()).downloadTask(with: url).resume()
-    }
-    
-    private func calculate(bytes: Int64, seconds: TimeInterval) -> Speed {
-        return Speed(bytes: bytes, seconds: seconds).pretty
     }
 }
 

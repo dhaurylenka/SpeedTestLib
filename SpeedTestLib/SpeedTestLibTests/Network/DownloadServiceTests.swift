@@ -15,7 +15,7 @@ class DownloadServiceTests: XCTestCase {
         
         let exp = expectation(description: "Eboy!")
         
-        sut.download(URL(string: "http://test.telecom.by:8080/download?size=25000000")!,
+        sut.test(URL(string: "http://test.telecom.by:8080/download?size=25000000")!,
                      current: { (current, avg) in
                         print(current)
                         print(avg)

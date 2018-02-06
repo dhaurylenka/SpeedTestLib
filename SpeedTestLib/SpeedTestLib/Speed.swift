@@ -9,7 +9,8 @@
 import Foundation
 
 struct Speed: CustomStringConvertible {
-    private static let upUnit: Double = 1024
+    private static let bitsInBytes: Double = 8
+    private static let upUnit: Double = 1000
     
     enum Units: Int {
         case Kbps, Mbps, Gbps
@@ -45,7 +46,7 @@ struct Speed: CustomStringConvertible {
 
 extension Speed {
     init(bytes: Int64, seconds: TimeInterval) {
-        let speedInB = Double(bytes) / seconds
+        let speedInB = Double(bytes) * Speed.bitsInBytes / seconds
         self.value = speedInB
         self.units = .Kbps
     }
