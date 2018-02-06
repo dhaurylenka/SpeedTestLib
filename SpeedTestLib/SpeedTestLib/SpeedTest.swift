@@ -16,6 +16,8 @@ enum SpeedTestError: Error {
 final class SpeedTest {
     private let hostService: HostsProviderService
     private let pingService: HostPingService
+    private let downloadService = CustomHostDownloadService()
+    private let uploadService = CustomHostUploadService()
     
     required init(hosts: HostsProviderService, ping: HostPingService) {
         self.hostService = hosts
@@ -42,6 +44,26 @@ final class SpeedTest {
                 }
             }
         }
+    }
+    
+    func runDownloadTest(for host: URL, size: Int, current: @escaping (Speed) -> (), final: @escaping (Speed) -> ()) {
+        downloadService.test(host,
+                             fileSize: size,
+                             current: { (_, avgSpeed) in
+                                current(avgSpeed)
+                            }, final: { result in
+                                final(result)
+                            })
+    }
+    
+    func runUploadTest(for host: URL, size: Int, current: @escaping (Speed) -> (), final: @escaping (Speed) -> ()) {
+        uploadService.test(host,
+                           fileSize: size,
+                           current: { (_, avgSpeed) in
+                            current(avgSpeed)
+                        }, final: { result in
+                            final(result)
+                        })
     }
     
     private func pingAllHosts(hosts: [URL], timeout: TimeInterval, closure: @escaping ([(host: URL, ping: Int)]) -> ()) {
