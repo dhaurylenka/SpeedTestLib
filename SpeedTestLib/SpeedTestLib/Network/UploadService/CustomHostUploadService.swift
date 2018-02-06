@@ -14,12 +14,12 @@ class CustomHostUploadService: NSObject, SpeedService {
     private var current: ((Speed, Speed) -> ())!
     private var final: ((Speed) -> ())!
     
-    func test(_ url: URL, current: @escaping (Speed, Speed) -> (), final: @escaping (Speed) -> ()) {
+    func test(_ url: URL, fileSize: Int, current: @escaping (Speed, Speed) -> (), final: @escaping (Speed) -> ()) {
         self.current = current
         self.final = final
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
-        URLSession(configuration: .default, delegate: self, delegateQueue: OperationQueue.main).uploadTask(with: request, from: Data(count: 9999999)).resume()
+        URLSession(configuration: .default, delegate: self, delegateQueue: OperationQueue.main).uploadTask(with: request, from: Data(count: fileSize)).resume()
     }
 }
 

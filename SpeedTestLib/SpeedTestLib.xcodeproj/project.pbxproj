@@ -18,6 +18,7 @@
 		6630797A2028E82A00A43814 /* SpeedTestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 663079792028E82A00A43814 /* SpeedTestTests.swift */; };
 		6630797D2028ECA900A43814 /* CustomHostDownloadService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6630797C2028ECA900A43814 /* CustomHostDownloadService.swift */; };
 		6630797F2028F05600A43814 /* DownloadServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6630797E2028F05600A43814 /* DownloadServiceTests.swift */; };
+		664D3762202A3F1C00798460 /* HostURLFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 664D3761202A3F1C00798460 /* HostURLFormatter.swift */; };
 		66BC0A6C2029B5C20018E534 /* Speed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66BC0A6B2029B5C20018E534 /* Speed.swift */; };
 		66BC0A6F2029C7600018E534 /* CustomHostUploadService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66BC0A6E2029C7600018E534 /* CustomHostUploadService.swift */; };
 		66BC0A712029CD130018E534 /* UploadServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66BC0A702029CD130018E534 /* UploadServiceTests.swift */; };
@@ -50,6 +51,7 @@
 		663079792028E82A00A43814 /* SpeedTestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeedTestTests.swift; sourceTree = "<group>"; };
 		6630797C2028ECA900A43814 /* CustomHostDownloadService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomHostDownloadService.swift; sourceTree = "<group>"; };
 		6630797E2028F05600A43814 /* DownloadServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadServiceTests.swift; sourceTree = "<group>"; };
+		664D3761202A3F1C00798460 /* HostURLFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostURLFormatter.swift; sourceTree = "<group>"; };
 		66BC0A6B2029B5C20018E534 /* Speed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Speed.swift; sourceTree = "<group>"; };
 		66BC0A6E2029C7600018E534 /* CustomHostUploadService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomHostUploadService.swift; sourceTree = "<group>"; };
 		66BC0A702029CD130018E534 /* UploadServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadServiceTests.swift; sourceTree = "<group>"; };
@@ -171,6 +173,7 @@
 			isa = PBXGroup;
 			children = (
 				66DA7F1C20286C7D00A01BA1 /* Result.swift */,
+				664D3761202A3F1C00798460 /* HostURLFormatter.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -311,6 +314,7 @@
 			files = (
 				66307966202888F100A43814 /* SpeedTestService.swift in Sources */,
 				66BC0A6F2029C7600018E534 /* CustomHostUploadService.swift in Sources */,
+				664D3762202A3F1C00798460 /* HostURLFormatter.swift in Sources */,
 				663079782028A6F500A43814 /* DefaultHostPingService.swift in Sources */,
 				663079752028A6AB00A43814 /* SpeedTestServiceAPI.swift in Sources */,
 				66BC0A6C2029B5C20018E534 /* Speed.swift in Sources */,

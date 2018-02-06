@@ -14,10 +14,14 @@ class CustomHostDownloadService: NSObject, SpeedService {
     private var current: ((Speed, Speed) -> ())!
     private var final: ((Speed) -> ())!
     
-    func test(_ url: URL, current: @escaping (Speed, Speed) -> (), final: @escaping (Speed) -> ()) {
+    func test(_ url: URL, fileSize: Int, current: @escaping (Speed, Speed) -> (), final: @escaping (Speed) -> ()) {
         self.current = current
         self.final = final
-        URLSession(configuration: .default, delegate: self, delegateQueue: OperationQueue()).downloadTask(with: url).resume()
+        
+        let resultURL = HostURLFormatter(speedTestURL: url).downloadURL(size: fileSize)
+        URLSession(configuration: .default, delegate: self, delegateQueue: OperationQueue())
+            .downloadTask(with: resultURL)
+            .resume()
     }
 }
 

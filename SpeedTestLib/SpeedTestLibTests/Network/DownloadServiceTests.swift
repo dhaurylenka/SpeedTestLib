@@ -15,13 +15,14 @@ class DownloadServiceTests: XCTestCase {
         
         let exp = expectation(description: "Eboy!")
         
-        sut.test(URL(string: "http://test.telecom.by:8080/download?size=25000000")!,
-                     current: { (current, avg) in
-                        print(current)
-                        print(avg)
-                    }, final: { result in
-                        exp.fulfill()
-                    })
+        sut.test(URL(string: "http://test.byfly.by/speedtest/upload.php")!,
+                 fileSize: 2500000,
+                 current: { (current, avg) in
+                    print(current)
+                    print(avg)
+                }, final: { result in
+                    exp.fulfill()
+                })
         
         wait(for: [exp], timeout: 30)
     }

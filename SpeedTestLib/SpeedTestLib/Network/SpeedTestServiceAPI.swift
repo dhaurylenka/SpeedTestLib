@@ -23,7 +23,7 @@ protocol HostPingService {
 }
 
 protocol SpeedService {
-    func test(_ url: URL, current: @escaping (Speed, Speed) -> (), final: @escaping (Speed) -> ())
+    func test(_ url: URL, fileSize: Int, current: @escaping (Speed, Speed) -> (), final: @escaping (Speed) -> ())
 }
 
 extension SpeedService {
