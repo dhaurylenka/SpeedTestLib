@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Speed: CustomStringConvertible {
+public struct Speed: CustomStringConvertible {
     private static let bitsInBytes: Double = 8
     private static let upUnit: Double = 1000
     
@@ -39,7 +39,7 @@ struct Speed: CustomStringConvertible {
             }
     }
     
-    var description: String {
+    public var description: String {
         return String(format: "%.3f", value) + " " + units.description
     }
 }

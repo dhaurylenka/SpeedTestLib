@@ -8,27 +8,27 @@
 
 import Foundation
 
-enum SpeedTestError: Error {
+public enum SpeedTestError: Error {
     case networkError
     case hostNotFound
 }
 
-final class SpeedTest {
+public final class SpeedTest {
     private let hostService: HostsProviderService
     private let pingService: HostPingService
     private let downloadService = CustomHostDownloadService()
     private let uploadService = CustomHostUploadService()
     
-    required init(hosts: HostsProviderService, ping: HostPingService) {
+    public required init(hosts: HostsProviderService, ping: HostPingService) {
         self.hostService = hosts
         self.pingService = ping
     }
     
-    convenience init() {
+    public convenience init() {
         self.init(hosts: SpeedTestService(), ping: DefaultHostPingService())
     }
     
-    func findBestHost(from max: Int, timeout: TimeInterval, closure: @escaping (Result<URL, SpeedTestError>) -> ()) {
+    public func findBestHost(from max: Int, timeout: TimeInterval, closure: @escaping (Result<URL, SpeedTestError>) -> ()) {
         hostService.getHosts(max: max, timeout: timeout) { [weak self] result in
             guard let strongSelf = self else { return }
             switch result {
@@ -46,7 +46,7 @@ final class SpeedTest {
         }
     }
     
-    func runDownloadTest(for host: URL, size: Int, current: @escaping (Speed) -> (), final: @escaping (Speed) -> ()) {
+    public func runDownloadTest(for host: URL, size: Int, current: @escaping (Speed) -> (), final: @escaping (Speed) -> ()) {
         downloadService.test(host,
                              fileSize: size,
                              current: { (_, avgSpeed) in
@@ -56,7 +56,7 @@ final class SpeedTest {
                             })
     }
     
-    func runUploadTest(for host: URL, size: Int, current: @escaping (Speed) -> (), final: @escaping (Speed) -> ()) {
+    public func runUploadTest(for host: URL, size: Int, current: @escaping (Speed) -> (), final: @escaping (Speed) -> ()) {
         uploadService.test(host,
                            fileSize: size,
                            current: { (_, avgSpeed) in

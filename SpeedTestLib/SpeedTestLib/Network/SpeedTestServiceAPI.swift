@@ -8,17 +8,17 @@
 
 import Foundation
 
-enum NetworkError: Error {
+public enum NetworkError: Error {
     case requestFailed
     case wrongContentType
     case wrongJSON
 }
 
-protocol HostsProviderService {
+public protocol HostsProviderService {
     func getHosts(max: Int, timeout: TimeInterval, closure: @escaping (Result<[URL], NetworkError>) -> ())
 }
 
-protocol HostPingService {
+public protocol HostPingService {
     func ping(url: URL, timeout: TimeInterval, closure: @escaping (Result<Int, NetworkError>) -> ())
 }
 
