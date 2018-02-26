@@ -28,7 +28,7 @@ public final class SpeedTest {
         self.init(hosts: SpeedTestService(), ping: DefaultHostPingService())
     }
     
-    public func findBestHost(from max: Int, timeout: TimeInterval, closure: @escaping (Result<URL, SpeedTestError>) -> ()) {
+    public func findBestHost(from max: Int, timeout: TimeInterval, closure: @escaping (Result<(URL, Int), SpeedTestError>) -> ()) {
         hostService.getHosts(max: max, timeout: timeout) { [weak self] result in
             guard let strongSelf = self else { return }
             switch result {
@@ -85,12 +85,12 @@ public final class SpeedTest {
         }
     }
     
-    private func findBestPings(from pings: [(host: URL, ping: Int)]) -> Result<URL, SpeedTestError> {
+    private func findBestPings(from pings: [(host: URL, ping: Int)]) -> Result<(URL, Int), SpeedTestError> {
         let best = pings.min(by: { (left, right) in
             left.ping < right.ping
         })
         if let best = best {
-            return .value(best.host)
+            return .value(best)
         } else {
             return .error(.hostNotFound)
         }
