@@ -12,9 +12,9 @@ class CustomHostDownloadService: NSObject, SpeedService {
     private var responseDate: Date?
     private var latestDate: Date?
     private var current: ((Speed, Speed) -> ())!
-    private var final: ((Speed) -> ())!
+    private var final: ((Result<Speed, NetworkError>) -> ())!
     
-    func test(_ url: URL, fileSize: Int, current: @escaping (Speed, Speed) -> (), final: @escaping (Speed) -> ()) {
+    func test(_ url: URL, fileSize: Int, current: @escaping (Speed, Speed) -> (), final: @escaping (Result<Speed, NetworkError>) -> ()) {
         self.current = current
         self.final = final
         
@@ -29,7 +29,13 @@ extension CustomHostDownloadService: URLSessionDownloadDelegate {
     func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didFinishDownloadingTo location: URL) {
         let result = calculate(bytes: downloadTask.countOfBytesReceived, seconds: Date().timeIntervalSince(self.responseDate!))
         DispatchQueue.main.async {
-            self.final(result)
+            self.final(.value(result))
+        }
+    }
+    
+    func urlSession(_ session: URLSession, didBecomeInvalidWithError error: Error?) {
+        DispatchQueue.main.async {
+            self.final(.error(NetworkError.requestFailed))
         }
     }
     

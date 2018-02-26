@@ -12,7 +12,7 @@ public struct Speed: CustomStringConvertible {
     private static let bitsInBytes: Double = 8
     private static let upUnit: Double = 1000
     
-    enum Units: Int {
+    public enum Units: Int {
         case Kbps, Mbps, Gbps
         
         var description: String {
@@ -24,8 +24,8 @@ public struct Speed: CustomStringConvertible {
         }
     }
     
-    let value: Double
-    let units: Units
+    public let value: Double
+    public let units: Units
     
     var pretty: Speed {
         return [Units.Kbps, .Mbps, .Gbps]

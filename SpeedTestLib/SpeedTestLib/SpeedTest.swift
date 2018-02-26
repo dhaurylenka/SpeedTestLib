@@ -46,7 +46,7 @@ public final class SpeedTest {
         }
     }
     
-    public func runDownloadTest(for host: URL, size: Int, current: @escaping (Speed) -> (), final: @escaping (Speed) -> ()) {
+    public func runDownloadTest(for host: URL, size: Int, current: @escaping (Speed) -> (), final: @escaping (Result<Speed, NetworkError>) -> ()) {
         downloadService.test(host,
                              fileSize: size,
                              current: { (_, avgSpeed) in
@@ -56,7 +56,7 @@ public final class SpeedTest {
                             })
     }
     
-    public func runUploadTest(for host: URL, size: Int, current: @escaping (Speed) -> (), final: @escaping (Speed) -> ()) {
+    public func runUploadTest(for host: URL, size: Int, current: @escaping (Speed) -> (), final: @escaping (Result<Speed, NetworkError>) -> ()) {
         uploadService.test(host,
                            fileSize: size,
                            current: { (_, avgSpeed) in

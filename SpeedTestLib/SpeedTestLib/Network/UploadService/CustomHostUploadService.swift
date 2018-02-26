@@ -12,9 +12,9 @@ class CustomHostUploadService: NSObject, SpeedService {
     private var responseDate: Date?
     private var latestDate: Date?
     private var current: ((Speed, Speed) -> ())!
-    private var final: ((Speed) -> ())!
+    private var final: ((Result<Speed, NetworkError>) -> ())!
     
-    func test(_ url: URL, fileSize: Int, current: @escaping (Speed, Speed) -> (), final: @escaping (Speed) -> ()) {
+    func test(_ url: URL, fileSize: Int, current: @escaping (Speed, Speed) -> (), final: @escaping (Result<Speed, NetworkError>) -> ()) {
         self.current = current
         self.final = final
         var request = URLRequest(url: url)
@@ -27,7 +27,7 @@ extension CustomHostUploadService: URLSessionDataDelegate {
     public func urlSession(_ session: URLSession, dataTask: URLSessionDataTask, didReceive response: URLResponse, completionHandler: @escaping (URLSession.ResponseDisposition) -> Swift.Void) {
         let result = calculate(bytes: dataTask.countOfBytesSent, seconds: Date().timeIntervalSince(self.responseDate!))
         DispatchQueue.main.async {
-            self.final(result)
+            self.final(.value(result))
         }
     }
 }
@@ -50,6 +50,18 @@ extension CustomHostUploadService: URLSessionTaskDelegate {
         
         DispatchQueue.main.async {
             self.current(current, average)
+        }
+    }
+    
+    func urlSession(_ session: URLSession, didBecomeInvalidWithError error: Error?) {
+        DispatchQueue.main.async {
+            self.final(.error(NetworkError.requestFailed))
+        }
+    }
+    
+    func urlSession(_ session: URLSession, task: URLSessionTask, didCompleteWithError error: Error?) {
+        DispatchQueue.main.async {
+            self.final(.error(NetworkError.requestFailed))
         }
     }
 }
