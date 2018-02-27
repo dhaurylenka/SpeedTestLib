@@ -30,4 +30,13 @@ extension SpeedService {
     func calculate(bytes: Int64, seconds: TimeInterval) -> Speed {
         return Speed(bytes: bytes, seconds: seconds).pretty
     }
+    
+    func sessionConfiguration(timeout: TimeInterval) -> URLSessionConfiguration {
+        let sessionConfig = URLSessionConfiguration.default
+        sessionConfig.timeoutIntervalForRequest = timeout
+        sessionConfig.timeoutIntervalForResource = timeout
+        sessionConfig.requestCachePolicy = .reloadIgnoringLocalAndRemoteCacheData
+        sessionConfig.urlCache = nil
+        return sessionConfig
+    }
 }

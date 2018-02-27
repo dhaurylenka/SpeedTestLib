@@ -19,10 +19,7 @@ class CustomHostUploadService: NSObject, SpeedService {
         self.final = final
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
-        let sessionConfig = URLSessionConfiguration.default
-        sessionConfig.timeoutIntervalForRequest = timeout
-        sessionConfig.timeoutIntervalForResource = timeout
-        URLSession(configuration: sessionConfig, delegate: self, delegateQueue: OperationQueue.main).uploadTask(with: request, from: Data(count: fileSize)).resume()
+        URLSession(configuration: sessionConfiguration(timeout: timeout), delegate: self, delegateQueue: OperationQueue.main).uploadTask(with: request, from: Data(count: fileSize)).resume()
     }
 }
 

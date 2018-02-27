@@ -16,7 +16,7 @@ class UploadServiceTests: XCTestCase {
         let exp = expectation(description: "Eboy!")
         
         sut.test(URL(string: "http://test.byfly.by/speedtest/upload.php")!,
-                 fileSize: 2500000,
+                 fileSize: 10000000,
                  timeout: 30,
                  current: { (current, avg) in
                     print("current: " + current.description)
