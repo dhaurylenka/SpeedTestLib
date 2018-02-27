@@ -38,6 +38,12 @@ extension CustomHostDownloadService: URLSessionDownloadDelegate {
         }
     }
     
+    func urlSession(_ session: URLSession, task: URLSessionTask, didCompleteWithError error: Error?) {
+        DispatchQueue.main.async {
+            self.final(.error(NetworkError.requestFailed))
+        }
+    }
+    
     func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didWriteData bytesWritten: Int64, totalBytesWritten: Int64, totalBytesExpectedToWrite: Int64) {
         guard let startDate = responseDate, let latesDate = latestDate else {
             responseDate = Date();
