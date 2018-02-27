@@ -17,6 +17,7 @@ class UploadServiceTests: XCTestCase {
         
         sut.test(URL(string: "http://test.byfly.by/speedtest/upload.php")!,
                  fileSize: 2500000,
+                 timeout: 30,
                  current: { (current, avg) in
                     print("current: " + current.description)
                     print("avg: " + avg.description)

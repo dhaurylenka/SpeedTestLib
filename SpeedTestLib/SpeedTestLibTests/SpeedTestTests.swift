@@ -18,7 +18,7 @@ class SpeedTestTests: XCTestCase {
         
         let exp = expectation(description: "It's working!!!")
         
-        sut.findBestHost(from: 5, timeout: 10) { result in
+        sut.findBestHost(from: 5, timeout: 20) { result in
             switch result {
             case .error(let error):
                 XCTFail(error.localizedDescription)
@@ -27,6 +27,6 @@ class SpeedTestTests: XCTestCase {
             }
         }
         
-        wait(for: [exp], timeout: 10)
+        wait(for: [exp], timeout: 20)
     }
 }
