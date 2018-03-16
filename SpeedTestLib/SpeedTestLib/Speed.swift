@@ -44,7 +44,7 @@ public struct Speed: CustomStringConvertible {
     }
 }
 
-extension Speed {
+public extension Speed {
     init(bytes: Int64, seconds: TimeInterval) {
         let speedInB = Double(bytes) * Speed.bitsInBytes / seconds
         self.value = speedInB
