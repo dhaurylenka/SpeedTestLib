@@ -16,7 +16,7 @@ final class SpeedTestService: HostsProviderService {
     }
     
     convenience init() {
-        self.init(url: URL(string: "http://beta.speedtest.net/api/js/servers?engine=js")!)
+        self.init(url: URL(string: "https://beta.speedtest.net/api/js/servers?engine=js")!)
     }
     
     func getHosts(max: Int, timeout: TimeInterval, closure: @escaping (Result<[URL], NetworkError>) -> ()) {
