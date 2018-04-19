@@ -19,7 +19,7 @@ final class SpeedTestService: HostsProviderService {
         self.init(url: URL(string: "https://beta.speedtest.net/api/js/servers?engine=js")!)
     }
     
-    func getHosts(max: Int, timeout: TimeInterval, closure: @escaping (Result<[URL], NetworkError>) -> ()) {
+    func getHosts(timeout: TimeInterval, closure: @escaping (Result<[SpeedTestHost], NetworkError>) -> ()) {
         URLSession(configuration: .default).dataTask(with: URLRequest(url: url, cachePolicy: .reloadIgnoringCacheData, timeoutInterval: timeout)) { (data, response, error) in
             if let _ = error {
                 closure(.error(NetworkError.requestFailed)); return
@@ -37,7 +37,19 @@ final class SpeedTestService: HostsProviderService {
                 closure(.error(NetworkError.wrongJSON)); return
             }
             
-            closure(.value(result.prefix(max).map { $0.url }))
+            closure(.value(result))
         }.resume()
+    }
+    
+    func getHosts(max: Int, timeout: TimeInterval, closure: @escaping (Result<[SpeedTestHost], NetworkError>) -> ()) {
+        getHosts(timeout: timeout) { result in
+            switch result {
+            case .value(let hosts):
+                closure(.value(Array(hosts.prefix(max))))
+                break
+            case .error(let error):
+                closure(.error(error))
+            }
+        }
     }
 }

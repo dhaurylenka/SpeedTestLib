@@ -15,7 +15,8 @@ public enum NetworkError: Error {
 }
 
 public protocol HostsProviderService {
-    func getHosts(max: Int, timeout: TimeInterval, closure: @escaping (Result<[URL], NetworkError>) -> ())
+    func getHosts(timeout: TimeInterval, closure: @escaping (Result<[SpeedTestHost], NetworkError>) -> ())
+    func getHosts(max: Int, timeout: TimeInterval, closure: @escaping (Result<[SpeedTestHost], NetworkError>) -> ())
 }
 
 public protocol HostPingService {

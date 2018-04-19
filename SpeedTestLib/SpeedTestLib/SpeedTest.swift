@@ -28,6 +28,21 @@ public final class SpeedTest {
         self.init(hosts: SpeedTestService(), ping: DefaultHostPingService())
     }
     
+    public func findHosts(timeout: TimeInterval, closure: @escaping (Result<[SpeedTestHost], SpeedTestError>) -> ()) {
+        hostService.getHosts(timeout: timeout) { result in
+            switch result {
+            case .value(let hosts):
+                DispatchQueue.main.async {
+                    closure(.value(hosts))
+                }
+            case .error(_):
+                DispatchQueue.main.async {
+                    closure(.error(.networkError))
+                }
+            }
+        }
+    }
+    
     public func findBestHost(from max: Int, timeout: TimeInterval, closure: @escaping (Result<(URL, Int), SpeedTestError>) -> ()) {
         hostService.getHosts(max: max, timeout: timeout) { [weak self] result in
             guard let strongSelf = self else { return }
@@ -37,7 +52,7 @@ public final class SpeedTest {
                     closure(.error(.networkError))
                 }
             case .value(let hosts):
-                strongSelf.pingAllHosts(hosts: hosts, timeout: timeout) { pings in
+                strongSelf.pingAllHosts(hosts: hosts.map { $0.url }, timeout: timeout) { pings in
                     DispatchQueue.main.async {
                         closure(strongSelf.findBestPings(from: pings))
                     }

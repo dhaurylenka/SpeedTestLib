@@ -22,7 +22,7 @@ import Foundation
  "host": "test.byfly.by:8080"
 */
 
-struct SpeedTestHost: Codable {
+public struct SpeedTestHost: Codable {
     let url: URL
     let name: String
     let country: String
