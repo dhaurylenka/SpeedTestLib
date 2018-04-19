@@ -23,10 +23,10 @@ import Foundation
 */
 
 public struct SpeedTestHost: Codable {
-    let url: URL
-    let name: String
-    let country: String
-    let cc: String
-    let host: String
-    let sponsor: String
+    public let url: URL
+    public let name: String
+    public let country: String
+    public let cc: String
+    public let host: String
+    public let sponsor: String
 }

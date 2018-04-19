@@ -8,7 +8,7 @@
 
 import Foundation
 
-final class SpeedTestService: HostsProviderService {
+final internal class SpeedTestService: HostsProviderService {
     private let url: URL
     
     required init(url: URL) {
