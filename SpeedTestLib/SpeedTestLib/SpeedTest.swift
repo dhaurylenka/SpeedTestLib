@@ -61,6 +61,19 @@ public final class SpeedTest {
         }
     }
     
+    public func ping(host: SpeedTestHost, timeout: TimeInterval, closure: @escaping (Result<Int, SpeedTestError>) -> ()) {
+        pingService.ping(url: host.url, timeout: timeout) { result in
+            DispatchQueue.main.async {
+                switch result {
+                case .value(let ping):
+                    closure(.value(ping))
+                case .error(_):
+                    closure(.error(.networkError))
+                }
+            }
+        }
+    }
+    
     public func runDownloadTest(for host: URL, size: Int, timeout: TimeInterval, current: @escaping (Speed) -> (), final: @escaping (Result<Speed, NetworkError>) -> ()) {
         downloadService.test(host,
                              fileSize: size,
